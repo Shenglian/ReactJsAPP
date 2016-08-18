@@ -2,19 +2,17 @@
 
 This workflow includes:
 
-1. Webpack;
-* Babel;
-* Scss;
-* React hot loader;
-
-2. Loader;
-* css-loader;
-* file-loader;
-* node-sass;
-* sass-loader;
-* standard-loader;
-* style-loader;
-* url-loader;
+1. Webpack
+* Babel
+* Scss
+* React hot loader
+* css-loader
+* file-loader
+* node-sass
+* sass-loader
+* standard-loader
+* style-loader
+* url-loader
 
 > 特別說明：如果安裝 sass-loader 不成功，你可能需要先安裝 node-sass
 > npm i --save-dev node-sass
