@@ -1,7 +1,34 @@
-.app {
-	display: flex;
-	font-size: 20px;
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
-.banner {
-	border-radius: 2px;
+
+html,
+body,
+div[data-js="app"],
+.app,
+#wrapper {
+	width: 100%;
+	height: 100%;
 }
+
+body {
+	font-family: "Microsoft JhengHei", 
+	微軟正黑體, 
+	Arial, 
+	Tahoma, 
+	"Century gothic", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizelegibility;
+}
+
+button {
+	border: none;
+	outline: none;
+}
+
+a { text-decoration: none; }
+
+@import './questions';

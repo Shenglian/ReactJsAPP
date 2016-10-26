@@ -24,12 +24,12 @@ module.exports = validate({
   ],
 
     module: {
-        preLoaders: [{
-          test: /\.js$/,
-          exclude: /node_modules/,
-          include: /src/,
-          loader: 'standard'
-        }],
+        // preLoaders: [{
+        //   test: /\.js$/,
+        //   exclude: /node_modules/,
+        //   include: /src/,
+        //   loader: 'standard'
+        // }],
         loaders: [
             {
                 test: /\.js$/,

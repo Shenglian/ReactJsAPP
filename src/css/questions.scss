@@ -1,0 +1,104 @@
+#wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	form {
+		font-size: 20px;
+	}
+	.form {
+		&__num {
+			margin-bottom: 15px;
+			font-size: 14px;
+			font-weight: 700;
+		}
+		&__title {
+			margin-bottom: 10px;
+		}
+		&__input {
+			input, span {
+				line-height: 16px;
+			}
+			input {
+				margin-right: 10px;
+				width: 14px;
+				height: 14px;
+			}
+			span {
+				font-size: 14px;
+			}
+		}
+	}
+}
+
+[class*="btn-"] {
+	margin-top: 20px;
+}
+[class*="btn-"] {
+	position: relative; //absolute
+	padding: 10px 20px;
+  	overflow: hidden;
+  	transition: all 500ms ease-in-out;
+  	border-radius: 5px;
+  	-webkit-tap-highlight-color: transparent;
+  	cursor: pointer;
+	&::after, 
+	&::before { 
+		position: absolute;
+		content: "";
+	}
+	&:hover, 
+	&:focus {
+		background: rgba(255, 255, 255, 0.8);
+	}
+}
+
+[class*="btn-mix"] {
+	&::after {
+	    content: attr(data-text);
+	    padding: 10px 20px;
+	    top: 0;
+	    left: 0;
+	    color: #fff;
+	    user-select: none;
+	    user-drag: none;
+	    border-radius: 5px;
+	}
+	&::before {
+		top: 50%;
+		left: 50%;
+		width: 0;
+		height: 0;
+		background: transparent;
+		box-shadow: 0 1em 2em 3em rgba(103, 101, 82, 0.5),
+		            4em 0em 2em 2em rgba(83, 67, 52, 0.6),
+		            -4em -2em 2em 2em rgba(208, 173, 85, 0.5),
+		            -4em 2em 2em 4em rgba(149, 125, 70, 0.5),
+		            0 -3em 2em 3em rgba(0, 0, 0, 0.5),
+		            2em -1em 2em 2em rgba(50, 10, 200, 0.5);
+
+		animation: mix 5s linear infinite;
+	}
+}
+
+@keyframes mix {
+  
+  30% {
+    box-shadow: 0 -1em 2em 3em rgba(255, 0, 200, 0.5),
+                4em -1em 2em 3em rgba(255, 50, 0, 0.8),
+                -4em 2em 3em 2em rgba(155, 200, 0, 0.5),
+                -4em -2em 2em 2em rgba(200, 0, 150, 0.6),
+                0 3em 2em 2em rgba(20, 250, 0, 0.5),
+                2em 1em 2em 2em rgba(50, 10, 250, 0.5);
+  }
+  
+  60% {
+    box-shadow: 2em 1em 2em 3em rgba(0, 0, 0, 0.5),
+                3em 1em 2em 3em rgba(149, 125, 70, 0.5),
+                3em -2em 3em 3em rgba(208, 173, 85, 0.5),
+                -4em 2em 2em 3em rgba(83, 67, 52, 0.6),
+                0 -3em 2em 3em rgba(103, 101, 82, 0.5),
+                -2em 1em 2em 3em rgba(50, 210, 250, 0.6);
+  }
+
+}

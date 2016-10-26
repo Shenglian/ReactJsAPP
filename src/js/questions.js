@@ -17,7 +17,7 @@ export default class Questions extends React.Component {
       answer: [],
       value: '',
       match: false,
-      result: false
+      result: false,
     };
   }
 
@@ -42,9 +42,10 @@ export default class Questions extends React.Component {
     }));
 
     const user_answer = this.state.answer.join('');
-    const a1_str = [2,1,2].join('');
+    const a1_str = ["都偷偷早退","猜個屁呀！","在收集後宮中..."].join('');
 
     if (user_answer === a1_str) {
+
       this.setState((prevState) => ({
         match: true
       }));
@@ -57,20 +58,33 @@ export default class Questions extends React.Component {
 
   build(index, arr){
     if (arr[index] === undefined) {
-      return (<div id="result_text" onClick={this.handleResult}>看結果(按我按我)</div> )
+      return (<div className="btn-mix-text" data-text="看結果(按我按我)" onClick={this.handleResult}>看結果(按我按我)</div> )
     } else {
       return (
-        <form className="form" onSubmit={ this.handleSubmit }>
+        <form className="form" onSubmit={ this.handleSubmit } autoComplete="off">
           <div className="form__num">{arr[index].num}</div>
           <div className="form__title">{arr[index].title}</div>
           <div className="form__input">
-            <input type="radio" value="1" onChange={this.onRadioChanged} name={arr[index].title} /><span>{arr[index].option_one}</span></div>
+            <input type="radio" value={arr[index].option_one}
+              onChange={this.onRadioChanged} 
+              name={arr[index].title} 
+              checked={this.state.value === arr[index].option_one}
+              />
+              <span>{arr[index].option_one}</span>
+          </div>
           <div className="form__input">
-            <input type="radio" value="2" onChange={this.onRadioChanged} name={arr[index].title} /><span>{arr[index].option_two}</span></div>
-          <button>下一題</button>
+            <input type="radio" value={arr[index].option_two}
+              onChange={this.onRadioChanged} 
+              name={arr[index].title} 
+              checked={this.state.value === arr[index].option_two}
+              />
+              <span>{arr[index].option_two}</span>
+          </div>
+          <button className="btn-mix-next" data-text="下一題">下一題</button>
+
         </form>
       )
-    }    
+    }
   }
 
   handleReset(){
@@ -117,7 +131,7 @@ export default class Questions extends React.Component {
         }
         {this.state.result === false ? 
           '' : 
-          <div id="reset_btn" onClick={this.handleReset}>重玩</div>
+          <div className="btn-mix-reset" onClick={this.handleReset} data-text="重玩">重玩</div>
         }
       </div>
     );

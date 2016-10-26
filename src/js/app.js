@@ -1,11 +1,11 @@
 'use strict'
 
 import React from 'react';
+import Questions from './questions';
 
 const App = () => (
 	<div className="app">
-		My App
-		<div className="banner">My Banner</div>
+		<Questions />
 	</div>
 )
 
