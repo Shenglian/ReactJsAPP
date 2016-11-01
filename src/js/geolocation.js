@@ -53,7 +53,7 @@ export default class Geolocation extends React.Component {
     return (
       <div id="wrapper">
         <div className="btn-mix-start" onClick={ this.geoFindMe } data-text="Show my location">Show my location</div>
-        <img src="https://maps.googleapis.com/maps/api/staticmap?center=25.044736099999998,121.54950090000001&zoom=16&size=400x400&markers=color:blue%7Clabel:S%7C25.044736099999998,121.54950090000001" />
+        <img src="http://maps.googleapis.com/maps/api/staticmap?center=25.044736099999998,121.54950090000001&zoom=16&size=400x400&markers=color:blue%7Clabel:S%7C25.044736099999998,121.54950090000001" />
         <div id="out"></div>
 
       </div>
