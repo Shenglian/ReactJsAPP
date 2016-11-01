@@ -50,7 +50,7 @@ export default class Geolocation extends React.Component {
     img.src = 
 
     this.setState({
-      src: `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=16&size=400x400&markers=color:blue%7Clabel:S%7C${latitude},${longitude}`
+      src: `http://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=16&size=400x400&markers=color:blue%7Clabel:S%7C${latitude},${longitude}`
     });
 
     // output.appendChild(img);
