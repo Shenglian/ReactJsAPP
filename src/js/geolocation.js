@@ -44,7 +44,17 @@ export default class Geolocation extends React.Component {
     navigator.geolocation.getCurrentPosition(success, error);
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    var output = document.getElementById("out");
+
+    if ("geolocation" in navigator) {
+      /* geolocation is available */
+      output.innerHTML = "<p>geolocation is available</p>";
+    } else {
+      /* geolocation IS NOT available */
+      output.innerHTML = "<p>geolocation IS NOT available</p>";
+    }
+  }
   componentWillUnmount() {}
 
   render() {
@@ -52,7 +62,7 @@ export default class Geolocation extends React.Component {
       <div id="wrapper">
         <div className="btn-mix-start" onClick={ this.geoFindMe } data-text="Show my location">Show my location</div>
         <div id="out"></div>
-        
+
       </div>
     );
   }
