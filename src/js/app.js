@@ -2,10 +2,11 @@
 
 import React from 'react';
 import Questions from './questions';
+import Geolocation from './geolocation';
 
 const App = () => (
 	<div className="app">
-		<Questions />
+		<Geolocation />
 	</div>
 )
 
