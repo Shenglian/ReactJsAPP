@@ -8,8 +8,11 @@ export default class Geolocation extends React.Component {
     super(props);
 
     this.geoFindMe = this.geoFindMe.bind(this)
+    this.success = this.success.bind(this)
 
-    this.state = {};
+    this.state = {
+      src: ''
+    };
   }
 
   geoFindMe(){
@@ -20,22 +23,7 @@ export default class Geolocation extends React.Component {
       return;
     }
 
-    function success(position) {
-
-      let {
-        latitude,
-        longitude
-      } = position.coords
-
-      output.innerHTML = `<p>Latitude is ${latitude}° <br>Longitude is ${longitude}°</p>`
-
-      var img = new Image();
-      img.width = 400;
-      img.height = 400;
-      img.src = `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=16&size=400x400&markers=color:blue%7Clabel:S%7C${latitude},${longitude}`;
-
-      output.appendChild(img);
-    };
+    
 
     function error() {
       output.innerHTML = "Unable to retrieve your location";
@@ -43,8 +31,30 @@ export default class Geolocation extends React.Component {
 
     output.innerHTML = "<p>Locating…</p>";
 
-    navigator.geolocation.getCurrentPosition(success, error);
+    navigator.geolocation.getCurrentPosition(this.success, error);
   }
+
+  success(position) {
+    var output = document.getElementById("out");
+
+    let {
+      latitude,
+      longitude
+    } = position.coords
+
+    output.innerHTML = `<p>Latitude is ${latitude}° <br>Longitude is ${longitude}°</p>`
+
+    var img = new Image();
+    img.width = 400;
+    img.height = 400;
+    img.src = 
+
+    this.setState({
+      src: `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=16&size=400x400&markers=color:blue%7Clabel:S%7C${latitude},${longitude}`
+    });
+
+    // output.appendChild(img);
+  };
 
   componentDidMount() {}
   componentWillUnmount() {}
@@ -53,9 +63,8 @@ export default class Geolocation extends React.Component {
     return (
       <div id="wrapper">
         <div className="btn-mix-start" onClick={ this.geoFindMe } data-text="Show my location">Show my location</div>
-        <img src="http://maps.googleapis.com/maps/api/staticmap?center=25.044736099999998,121.54950090000001&zoom=16&size=400x400&markers=color:blue%7Clabel:S%7C25.044736099999998,121.54950090000001" />
+        <img src={ this.state.src } alt=""/>
         <div id="out"></div>
-
       </div>
     );
   }
