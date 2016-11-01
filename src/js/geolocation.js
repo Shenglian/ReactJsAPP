@@ -30,6 +30,8 @@ export default class Geolocation extends React.Component {
       output.innerHTML = `<p>Latitude is ${latitude}° <br>Longitude is ${longitude}°</p>`
 
       var img = new Image();
+      img.width = 400;
+      img.height = 400;
       img.src = `http://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=16&size=400x400&markers=color:blue%7Clabel:S%7C${latitude},${longitude}`;
 
       output.appendChild(img);
@@ -44,17 +46,7 @@ export default class Geolocation extends React.Component {
     navigator.geolocation.getCurrentPosition(success, error);
   }
 
-  componentDidMount() {
-    var output = document.getElementById("out");
-
-    if ("geolocation" in navigator) {
-      /* geolocation is available */
-      output.innerHTML = "<p>geolocation is available</p>";
-    } else {
-      /* geolocation IS NOT available */
-      output.innerHTML = "<p>geolocation IS NOT available</p>";
-    }
-  }
+  componentDidMount() {}
   componentWillUnmount() {}
 
   render() {
