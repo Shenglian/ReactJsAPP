@@ -32,7 +32,7 @@ export default class Geolocation extends React.Component {
       var img = new Image();
       img.width = 400;
       img.height = 400;
-      img.src = `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=16&size=400x400&markers=color:blue%7Clabel:S%7C${latitude},${longitude}`;
+      img.src = `http://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=16&size=400x400&markers=color:blue%7Clabel:S%7C${latitude},${longitude}`;
 
       output.appendChild(img);
     };
