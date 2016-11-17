@@ -3,10 +3,11 @@
 import React from 'react';
 import Questions from './questions';
 import Geolocation from './geolocation';
+import Bg from './bg';
 
 const App = () => (
 	<div className="app">
-		<Geolocation />
+		<Bg />
 	</div>
 )
 
