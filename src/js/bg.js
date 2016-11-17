@@ -14,7 +14,7 @@ export default class Questions extends React.Component {
   render() {
 
     let style = {
-      backgroundImage: 'url(' + '/imgs/pc.png' + ')',
+      backgroundImage: 'url(' + 'imgs/pc.png' + ')',
       backgroundAttachment: 'fixed'
     };
 
